@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    background-color: royalblue;
+    height: 100vh;
+    /* justify-content: flex-end; */
+    /* justify-content: space-evenly; */
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin: 15px;
+}
+
+#block-3 {
+    /* order: -1; */
+    border-radius: 30px;
+    transition-property: background-color, border-radius;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0,cubic-bezier(0.39, 0.575, 0.565, 1));
+}
+
+/* .blocks:last-child {
+    /* order: -2; */
+/* } */ */
+
+
+#block-3:hover {
+    background-color: teal;
+    border-radius: 100%;
+}
+
+.blocks:nth-child(2) {
+    animation-name: changeColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    /* transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); */
+}
+
+
+@keyframes changeColor {
+    0% {
+        background-color: slateblue;
+    }
+    30% {background-color: teal;
+        border-radius: 100%;
+    }
+    60% {
+        background-color: violet;
+        border-radius: 100%;
+    }
+    100% {
+        background-color: black;
+        border-radius: 100%;
+    }
+}
+
+.blocks:first-child {
+    animation-name: switch;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+}
+
+@keyframes switch {
+    0% {
+        /* order: 0; */
+        margin-left: 100%;
+    }
+    50% {
+        /* order: 1; */
+        margin-left: 0%;
+    }
+}

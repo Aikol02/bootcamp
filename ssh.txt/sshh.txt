@@ -1,0 +1,235 @@
+ssh-keygen -t rsa -b 4096 -C "urmatbekovaaiziya@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/aikol/.ssh/id_rsa): 
+/home/aikol/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Passphrases do not match.  Try again.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/aikol/.ssh/id_rsa
+Your public key has been saved in /home/aikol/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:eQFCWxuE1vZj3otG+bAA3LBqCD/2n71I7dgaRTOw6tk urmatbekovaaiziya@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|     .++=        |
+|      +*o+       |
+|     oo==..      |
+|.    .+..++.     |
+| o ... .So.+     |
+|  =.oo o..= .    |
+| . +o E .o = .   |
+|    .. O  + o    |
+|     .*.=o       |
++----[SHA256]-----+
+aikol@aikol-urmatbekova-lifebook2002:~$ 
+aikol@aikol-urmatbekova-lifebook2002:~$ cd -/.ssh/
+bash: cd: -/: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
+aikol@aikol-urmatbekova-lifebook2002:~$ 
+aikol@aikol-urmatbekova-lifebook2002:~$ cd -/.ssh/
+bash: cd: -/: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
+aikol@aikol-urmatbekova-lifebook2002:~$ ~/.ssh/
+bash: /home/aikol/.ssh/: Is a directory
+aikol@aikol-urmatbekova-lifebook2002:~$ cd -/.ssh/
+bash: cd: -/: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
+aikol@aikol-urmatbekova-lifebook2002:~$ cd ~/.ssh/
+aikol@aikol-urmatbekova-lifebook2002:~/.ssh$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDnA+PuCffT+Xa5WvPFgY3uj/Iz5oK/8ZKkL9K6b+UDnrGksAvcXNrXiqbJeK74GPZy7xLmZbVYYPRdQH6RZshfryhdm74GLdb6YvJuPU7w8UDZqNwkGVke1360+l27iwywopU8Y0s/nz7Ww6OsxK4j5MFn5TDjmxwnQe0ovylvizR5B5LWizqbC12CJlqh/PDHg/FzUuLY3do9fiZQWlxBrC7qrXyJyEewp5Ng6kjbM9qhpKLaP32W2rGN3jYfDMVYSGLjsU1FEeCinJY03LBaSNhrHuJyKhDUgqQmBEmvlmvD17E8c2CWeotdRIuoUedsfjcF3FJgCEYcrwrOVi5Q3+smshkXfkrALiMpuMRNkq885ZbFXL4QHdYEz6+/6DbaCGhAqt2NXvKiLjxzERL3uivlbky/EE5GH6OQ/f+PVQBaz56/Xh6qai/brVeVU8Et5cn6XbUgsP0DXsgN8Q+nPNqeSePwVo9wY24Ho9T33qiCCRSl6M45txfbxKu/UC/h9dOg3rFsY96nJxzmTzZ6yz82AvmLJNMKTwSCFd5yxzXhw46vYK5KT+pQAN3P+ZscdWTAZjwDoee6iSmUHMp6ku4PncaB+pDqU4+urtrQCNFaHOdpdt+3VFh+2TfvMwIcqkE3cwrNnBedL8Qn89ZBSP8BQPgRsQvZPbYyGizFKw== urmatbekovaaiziya@gmail.com
+aikol@aikol-urmatbekova-lifebook2002:~/.ssh$ 
+
+
+
+aikol@aikol-urmatbekova-lifebook2002:~/.ssh$ cd
+aikol@aikol-urmatbekova-lifebook2002:~$ cd Desktop
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop$ cd Bootcamp
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp$ mkdir git_practice
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp$ ls
+built-ins.py  parsing_project  week10  week3  week7
+git_practice  reddit_news      week11  week4  week8
+my_project    venv             week12  week5  week9
+parsing_cars  week1            week2   week6
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp$ cd git_practice
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ ls
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ touch git_commands.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ ls
+git_commands.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ nano git_commands.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git init
+Initialized empty Git repository in /home/aikol/Desktop/Bootcamp/git_practice/.git/
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ ls -a
+.  ..  .git  git_commands.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_commands.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git add git_commands.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   git_commands.py
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ touch test1.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ touch test2.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ touch test3.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   git_commands.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test1.py
+	test2.py
+	test3.py
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git add .
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   git_commands.py
+	new file:   test1.py
+	new file:   test2.py
+	new file:   test3.py
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git commit -m "initial commit."
+[master (root-commit) e73d904] initial commit.
+ 4 files changed, 11 insertions(+)
+ create mode 100644 git_commands.py
+ create mode 100644 test1.py
+ create mode 100644 test2.py
+ create mode 100644 test3.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git remote add origin git@github.com:Aikol02/git_practice.git
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git branch
+* master
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git branch test
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git branch
+* master
+  test
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git checkout test
+Switched to branch 'test'
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git branch
+  master
+* test
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git push 
+fatal: The current branch test has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git push --set-upstream origin test
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 387 bytes | 387.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To github.com:Aikol02/git_practice.git
+ * [new branch]      test -> test
+Branch 'test' set up to track remote branch 'test' from 'origin'.
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ 
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git checkout master
+Switched to branch 'master'
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git branch
+* master
+  test
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+nothing to commit, working tree clean
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ touch test4.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test4.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git add .
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   test4.py
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git commit -m "Add test4.py"
+[master 2393945] Add test4.py
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test4.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git push --set-upstream origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 235 bytes | 235.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/Aikol02/git_practice/pull/new/master
+remote: 
+To github.com:Aikol02/git_practice.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ 
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ git clone git@github.com:addirossi/test_proj.gitCloning into 'test_proj'...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 14 (delta 3), reused 5 (delta 0), pack-reused 0
+Receiving objects: 100% (14/14), done.
+Resolving deltas: 100% (3/3), done.
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ ls
+git_commands.py  test2.py  test4.py
+test1.py         test3.py  test_proj
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice$ cd test_proj
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ ls
+kani.txt  test_deniz.py  test.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ ls -a
+.  ..  .git  .gitignore  kani.txt  test_deniz.py  test.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ nano .gitignor
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ nano .gitignore
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ ls -a
+.  ..  .git  .gitignore  kani.txt  test_deniz.py  test.py
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ git pull origin master
+From github.com:addirossi/test_proj
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ git clone git@github.com:addirossi/test_proj.git
+Cloning into 'test_proj'...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 14 (delta 3), reused 5 (delta 0), pack-reused 0
+Receiving objects: 100% (14/14), done.
+Resolving deltas: 100% (3/3), done.
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ nano .gitignore
+aikol@aikol-urmatbekova-lifebook2002:~/Desktop/Bootcamp/git_practice/test_proj$ 
+

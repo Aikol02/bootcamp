@@ -1,0 +1,4 @@
+Atai 50 2
+Ulan 70 5
+Jannat 90 6
+Bektur 85 7

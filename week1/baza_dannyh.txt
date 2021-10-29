@@ -1,0 +1,387 @@
+sudo -i -u postgres
+[sudo] password for aikol: 
+postgres@aikol-LIFEBOOK-E744:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# create type condition as enum ('new', 'used', 'fixed');
+ERROR:  type "condition" already exists
+postgres=# create table car(
+postgres(# id serial primary key,
+postgres(# brand varchar(50) not null,
+postgres(# model varchar(50) not null,
+postgres(# state condition default 'new',
+postgres(# price money,
+postgres(# is_registered bool default True,
+postgres(# date_of_release date);
+CREATE TABLE
+postgres=# \dt
+        List of relations
+ Schema | Name | Type  |  Owner   
+--------+------+-------+----------
+ public | car  | table | postgres
+(1 row)
+
+postgres=# \d car
+postgres=# \d Car
+                                        Table "public.car"
+     Column      |         Type          | Collation | Nullable |             Default             
+-----------------+-----------------------+-----------+----------+---------------------------------
+ id              | integer               |           | not null | nextval('car_id_seq'::regclass)
+ brand           | character varying(50) |           | not null | 
+ model           | character varying(50) |           | not null | 
+ state           | condition             |           |          | 'new'::condition
+ price           | money                 |           |          | 
+ is_registered   | boolean               |           |          | true
+ date_of_release | date                  |           |          | 
+Indexes:
+    "car_pkey" PRIMARY KEY, btree (id)
+
+postgres=# select from * from car;
+ERROR:  syntax error at or near "*"
+LINE 1: select from * from car;
+                    ^
+
+postgres=# select * from car;
+ id | brand | model | state | price | is_registered | date_of_release 
+----+-------+-------+-------+-------+---------------+-----------------
+(0 rows)
+
+postgres=# insert into Car (brand, model, price, date_of_release) values ('Toyota', '780', 25000, '2021/01/01');
+INSERT 0 1
+postgres=# select * from car;
+ id | brand  | model | state |     price     | is_registered | date_of_release 
+----+--------+-------+-------+---------------+---------------+-----------------
+  1 | Toyota | 780   | new   | 25 000.00 сом | t             | 2021-01-01
+(1 row)
+
+postgres=# insert into Car (brand, model, price, date_of_release, state, is_registered) values ('BMW', 'X5', 25000, '2019/03/23', 'used', False);
+INSERT 0 1
+postgres=# insert into Car (brand, model, price, date_of_release, state, is_registered) values ('mercedes', '212', 34000, '2019/03/23', 'used', False);
+INSERT 0 1
+postgres=# select * from car;
+ id |  brand   | model | state |     price     | is_registered | date_of_release 
+----+----------+-------+-------+---------------+---------------+-----------------
+  1 | Toyota   | 780   | new   | 25 000.00 сом | t             | 2021-01-01
+  2 | BMW      | X5    | used  | 25 000.00 сом | f             | 2019-03-23
+  3 | mercedes | 212   | used  | 34 000.00 сом | f             | 2019-03-23
+(3 rows)
+
+postgres=# select * from car where is_registered = True;
+ id | brand  | model | state |     price     | is_registered | date_of_release 
+----+--------+-------+-------+---------------+---------------+-----------------
+  1 | Toyota | 780   | new   | 25 000.00 сом | t             | 2021-01-01
+(1 row)
+
+postgres=# select * from car where state = 'new';
+ id | brand  | model | state |     price     | is_registered | date_of_release 
+----+--------+-------+-------+---------------+---------------+-----------------
+  1 | Toyota | 780   | new   | 25 000.00 сом | t             | 2021-01-01
+(1 row)
+
+postgres=# \s
+
+postgres=# 
+
+\h \?
+
+
+alter table car rename price to prices:
+
+
+
+
+
+
+psql
+psql: error: FATAL:  role "aikol" does not exist
+aikol@aikol-urmatbekova-lifebook2002:~$ sudo -i -u postgres
+[sudo] password for aikol: 
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+test_user=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ sudo -i -u postges
+sudo: unknown user: postges
+sudo: unable to initialize policy plugin
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# \l
+postgres=# create database test1;
+CREATE DATABASE
+postgres=# 
+postgres=# \l
+postgres=# \c test1
+You are now connected to database "test1" as user "postgres".
+test1=# \dt
+Did not find any relations.
+test1=# 
+test1=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# \dt
+        List of relations
+ Schema | Name | Type  |  Owner   
+--------+------+-------+----------
+ public | car  | table | postgres
+(1 row)
+
+postgres=# \l
+postgres=# drop database test1;
+DROP DATABASE
+postgres=# \l
+postgres=# create database name_of_database
+postgres-# drop database name_of_database
+postgres-# ;
+ERROR:  syntax error at or near "drop"
+LINE 2: drop database name_of_database
+        ^
+postgres=# 
+postgres=# \du
+postgres=# \du
+postgres=# drop database test_user;
+DROP DATABASE
+postgres=# \l
+postgres=# 
+postgres=# create user test_user with password 'test1';
+ERROR:  role "test_user" already exists
+postgres=# create user test_user1 with password 'test1';
+CREATE ROLE
+postgres=# \du
+postgres=# alter role test_user1 with superuser;
+ALTER ROLE
+postgres=# \du
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user1
+psql: error: FATAL:  database "test_user1" does not exist
+postgres@aikol-urmatbekova-lifebook2002:~$ psql postgres
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# create database test_user1;
+CREATE DATABASE
+postgres=# \l
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user1
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+test_user1=# \l
+test_user1=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql -u test_user1
+/usr/lib/postgresql/12/bin/psql: invalid option -- 'u'
+Try "psql --help" for more information.
+postgres@aikol-urmatbekova-lifebook2002:~$ psql -U test_user1
+psql: error: FATAL:  Peer authentication failed for user "test_user1"
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql -U test_user
+psql: error: FATAL:  Peer authentication failed for user "test_user"
+postgres@aikol-urmatbekova-lifebook2002:~$ psql -U test_user1
+psql: error: FATAL:  Peer authentication failed for user "test_user1"
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# \l
+postgres=# 
+postgres=# 
+postgres=# psql test_user
+postgres-# ;
+ERROR:  syntax error at or near "psql"
+LINE 1: psql test_user
+        ^
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user
+psql: error: FATAL:  database "test_user" does not exist
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user1
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+test_user1=# \l
+test_user1=# 
+test_user1=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# exit
+postgres@aikol-urmatbekova-lifebook2002:~$ psql -U test_user1
+psql: error: FATAL:  Peer authentication failed for user "test_user1"
+postgres@aikol-urmatbekova-lifebook2002:~$ psql test_user1
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+test_user1=# \c postgres
+You are now connected to database "postgres" as user "postgres"ppppostgres@aikol-urmatbekova-lifebook2002:~$ psql -U test_user1
+psql: error: FATAL:  Peer authentication failed for user "test_user1"
+postgres@aikol-urmatbekova-lifebook2002:~$ 
+postgres@aikol-urmatbekova-lifebook2002:~$ psql
+psql (12.8 (Ubuntu 12.8-0ubuntu0.20.04.1))
+Type "help" for help.
+
+postgres=# 
+
+
+
+
+
+git commands
+
+git init - .git
+git remote add name url  
+git pull origin master 
+git status 
+git add . 
+git commit -m "comment"
+git branch 
+git branch name branch 
+git checkout name branch
+git push origin master
+git reset filename 
+
+
+
+
+
+
+
+4. Операторы DDL
+
+DATABASE
+SHADOW
+DOMAIN
+TABLE
+INDEX
+VIEW
+TRIGGER
+PROCEDURE
+EXTERNAL FUNCTION
+FILTER
+SEQUENCE (GENERATOR)
+EXCEPTION
+COLLATION
+CHARACTER SET
+COMMENTS
+
+
+
+
+5. Операторы DML
+SELECT
+INSERT
+UPDATE
+UPDATE OR INSERT
+DELETE
+MERGE
+EXECUTE PROCEDURE
+EXECUTE BLOCK
+
+
+
+ABORT                            CREATE USER
+  ALTER AGGREGATE                  CREATE USER MAPPING
+  ALTER COLLATION                  CREATE VIEW
+  ALTER CONVERSION                 DEALLOCATE
+  ALTER DATABASE                   DECLARE
+  ALTER DEFAULT PRIVILEGES         DELETE
+  ALTER DOMAIN                     DISCARD
+  ALTER EVENT TRIGGER              DO
+  ALTER EXTENSION                  DROP ACCESS METHOD
+  ALTER FOREIGN DATA WRAPPER       DROP AGGREGATE
+  ALTER FOREIGN TABLE              DROP CAST
+  ALTER FUNCTION                   DROP COLLATION
+  ALTER GROUP                      DROP CONVERSION
+  ALTER INDEX                      DROP DATABASE
+  ALTER LANGUAGE                   DROP DOMAIN
+  ALTER LARGE OBJECT               DROP EVENT TRIGGER
+  ALTER MATERIALIZED VIEW          DROP EXTENSION
+  ALTER OPERATOR                   DROP FOREIGN DATA WRAPPER
+  ALTER OPERATOR CLASS             DROP FOREIGN TABLE
+  ALTER OPERATOR FAMILY            DROP FUNCTION
+  ALTER POLICY                     DROP GROUP
+  ALTER PROCEDURE                  DROP INDEX
+ALTER PUBLICATION                DROP LANGUAGE
+  ALTER ROLE                       DROP MATERIALIZED VIEW
+  ALTER ROUTINE                    DROP OPERATOR
+  ALTER RULE                       DROP OPERATOR CLASS
+  ALTER SCHEMA                     DROP OPERATOR FAMILY
+  ALTER SEQUENCE                   DROP OWNED
+  ALTER SERVER                     DROP POLICY
+  ALTER STATISTICS                 DROP PROCEDURE
+  ALTER SUBSCRIPTION               DROP PUBLICATION
+  ALTER SYSTEM                     DROP ROLE
+  ALTER TABLE                      DROP ROUTINE
+  ALTER TABLESPACE                 DROP RULE
+  ALTER TEXT SEARCH CONFIGURATION  DROP SCHEMA
+  ALTER TEXT SEARCH DICTIONARY     DROP SEQUENCE
+  ALTER TEXT SEARCH PARSER         DROP SERVER
+  ALTER TEXT SEARCH TEMPLATE       DROP STATISTICS
+  ALTER TRIGGER                    DROP SUBSCRIPTION
+  ALTER TYPE                       DROP TABLE
+  ALTER USER                       DROP TABLESPACE
+  ALTER USER MAPPING               DROP TEXT SEARCH CONFIGURATION
+  ALTER VIEW                       DROP TEXT SEARCH DICTIONARY
+  ANALYZE                          DROP TEXT SEARCH PARSER
+  BEGIN                            DROP TEXT SEARCH TEMPLATE
+  CALL                             DROP TRANSFORM
+  CHECKPOINT                       DROP TRIGGER
+  CLOSE                            DROP TYPE
+  CLUSTER                          DROP USER
+  COMMENT                          DROP USER MAPPING
+  COMMIT                           DROP VIEW
+  COMMIT PREPARED                  END
+  COPY                             EXECUTE
+  CREATE ACCESS METHOD             EXPLAIN
+  CREATE AGGREGATE                 FETCH
+  CREATE CAST                      GRANT
+  CREATE COLLATION                 IMPORT FOREIGN SCHEMA
+  CREATE CONVERSION                INSERT
+  CREATE DATABASE                  LISTEN
+  CREATE DOMAIN                    LOAD
+  CREATE EVENT TRIGGER             LOCK
+  CREATE EXTENSION                 MOVE
+  CREATE FOREIGN DATA WRAPPER      NOTIFY
+  CREATE FOREIGN TABLE             PREPARE
+  CREATE FUNCTION                  PREPARE TRANSACTION
+  CREATE GROUP                     REASSIGN OWNED
+  CREATE INDEX                     REFRESH MATERIALIZED VIEW
+  CREATE LANGUAGE                  REINDEX
+  CREATE MATERIALIZED VIEW         RELEASE SAVEPOINT
+  CREATE OPERATOR                  RESET
+  CREATE OPERATOR CLASS            REVOKE
+  CREATE OPERATOR FAMILY           ROLLBACK
+  CREATE POLICY                    ROLLBACK PREPARED
+  CREATE PROCEDURE                 ROLLBACK TO SAVEPOINT
+  CREATE PUBLICATION               SAVEPOINT
+  CREATE ROLE                      SECURITY LABEL
+  CREATE RULE                      SELECT
+  CREATE SCHEMA                    SELECT INTO
+  CREATE SEQUENCE                  SET
+  CREATE SERVER                    SET CONSTRAINTS
+  CREATE STATISTICS                SET ROLE
+  CREATE SUBSCRIPTION              SET SESSION AUTHORIZATION
+  CREATE TABLE                     SET TRANSACTION
+  CREATE TABLE AS                  SHOW
+  CREATE TABLESPACE                START TRANSACTION
+  CREATE TEXT SEARCH CONFIGURATION TABLE
+  CREATE TEXT SEARCH DICTIONARY    TRUNCATE
+  CREATE TEXT SEARCH PARSER        UNLISTEN
+  CREATE TEXT SEARCH TEMPLATE      UPDATE
+  CREATE TRANSFORM                 VACUUM
+  CREATE TRIGGER                   VALUES
+  CREATE TYPE                      WITH
